@@ -38,14 +38,12 @@ This project performs sentiment analysis on the Amazon Fine Food Reviews dataset
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/JedAbidi/sentiment-analysis-amazon-reviews.git
-   cd sentiment-analysis-amazon-reviews
+   git clone https://github.com/JedAbidi/Sentiment-Analysis.git
+   
    ```
 
-2. **Set Up Virtual Environment**:
+2. **Set Up **:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
    pip install -r requirements.txt
    ```
 

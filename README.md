@@ -1,60 +1,104 @@
-# Amazon Fine Food Reviews - Sentiment Analysis
+Sentiment Analysis on Amazon Fine Food Reviews
+Project Overview
+This project performs sentiment analysis on the Amazon Fine Food Reviews dataset using Python. The goal is to analyze customer reviews to determine their sentiment (positive, negative, or neutral) based on review text and star ratings. The project leverages libraries like NLTK, Pandas, Matplotlib, Seaborn, and a pre-trained RoBERTa model for sentiment analysis.
+Dataset
+The dataset used is the Amazon Fine Food Reviews dataset available on Kaggle. It contains over 568,000 reviews of food products sold on Amazon, with features including:
 
-This project performs sentiment analysis on the Amazon Fine Food Reviews dataset using both **VADER (Valence Aware Dictionary and sEntiment Reasoner)** and **RoBERTa (Transformer-based)** models. The goal is to compare the performance of these two different approaches to sentiment analysis.
+Columns: Id, ProductId, UserId, ProfileName, HelpfulnessNumerator, HelpfulnessDenominator, Score, Time, Summary, Text
+Key Features:
+Score: Star rating (1 to 5) given by the reviewer.
+Text: The review text provided by the customer.
 
-## 📁 Project Structure
 
-- **Data Loading & Exploration**: Loading the Amazon Fine Food Reviews dataset and performing initial exploratory data analysis
-- **Text Preprocessing**: Tokenization, part-of-speech tagging, and named entity recognition using NLTK
-- **VADER Sentiment Analysis**: Using the lexicon-based VADER model for sentiment scoring
-- **RoBERTa Sentiment Analysis**: Using the transformer-based RoBERTa model for more contextual sentiment analysis
-- **Comparative Analysis**: Visualizing and comparing results from both models
+Size: 568,454 rows and 10 columns.
 
-## 🛠️ Technologies Used
+The dataset is used to visualize review distributions and perform sentiment analysis using the RoBERTa model to compute sentiment scores.
+Installation
+To run this project, ensure you have Python 3.10 installed along with the required libraries. Follow these steps to set up the environment:
 
-- **Python 3.10.12**
-- **Libraries**:
-  - `pandas` - Data manipulation and analysis
-  - `numpy` - Numerical computing
-  - `matplotlib` & `seaborn` - Data visualization
-  - `nltk` - Natural Language Toolkit for text processing
-  - `transformers` - HuggingFace library for transformer models
-  - `scipy` - Scientific computing
+Clone the Repository:
+git clone https://github.com/your-username/sentiment-analysis-amazon-reviews.git
+cd sentiment-analysis-amazon-reviews
 
-## 📊 Dataset
 
-The project uses the **Amazon Fine Food Reviews** dataset containing:
-- **568,454 reviews** of fine foods from Amazon
-- **10 columns** including ProductId, UserId, Score, Summary, and Text
-- **Score ratings** from 1 to 5 stars
+Install Dependencies:Create a virtual environment and install the required packages:
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
 
-## 🔍 Key Features
 
-### 1. **VADER Analysis**
-- Lexicon-based sentiment analysis
-- Specialized for social media and short texts
-- Provides compound, positive, negative, and neutral scores
-- Fast but doesn't account for word relationships
+Requirements:The requirements.txt file includes:
+nltk
+pandas
+numpy
+matplotlib
+seaborn
+transformers
 
-### 2. **RoBERTa Analysis**
-- Transformer-based pre-trained model
-- Accounts for context and relationships between words
-- More accurate but computationally intensive
-- Provides probability scores for negative, neutral, and positive sentiments
 
-### 3. **Comparative Visualization**
-- Bar plots comparing sentiment scores across different star ratings
-- Analysis of how both models perform across the rating spectrum
+Download the Dataset:
 
-## 📈 Results
+Download the dataset from Kaggle.
+Place the Reviews.csv file in the project directory or update the file path in the notebook.
 
-The project demonstrates:
-- How traditional lexicon-based approaches (VADER) compare with modern transformer models (RoBERTa)
-- The relationship between explicit star ratings and computed sentiment scores
-- Visualizations showing sentiment distribution across different review scores
 
-## 🚀 Getting Started
+Optional GPU Setup:The project supports GPU acceleration (e.g., NVIDIA Tesla T4). Ensure CUDA and cuDNN are installed if running on a GPU-enabled system.
 
-### Prerequisites
-```bash
-pip install pandas numpy matplotlib seaborn nltk transformers scipy tqdm
+
+Usage
+
+Run the Jupyter Notebook:Start Jupyter Notebook and open the Sentiment_Analysis_Notebook.ipynb file:
+jupyter notebook Sentiment_Analysis_Notebook.ipynb
+
+
+Key Steps in the Notebook:
+
+Data Loading: Loads the Amazon Fine Food Reviews dataset using Pandas.
+Exploratory Data Analysis (EDA):
+Displays the first few rows of the dataset.
+Visualizes the distribution of star ratings using a bar plot.
+
+
+Sentiment Analysis:
+Uses the RoBERTa model to compute sentiment scores (roberta_pos, etc.) for review texts.
+Visualizes positive sentiment scores by star rating using Seaborn.
+
+
+Output: Generates visualizations like bar plots to interpret sentiment trends.
+
+
+Expected Outputs:
+
+Bar plot showing the count of reviews by star rating.
+Bar plot showing the average positive sentiment score (from RoBERTa) for each star rating.
+
+
+
+Project Structure
+sentiment-analysis-amazon-reviews/
+├── Sentiment_Analysis_Notebook.ipynb  # Main Jupyter Notebook
+├── Reviews.csv                       # Dataset (not included in repo, download from Kaggle)
+├── requirements.txt                  # Python dependencies
+├── README.md                         # This file
+
+Results
+
+The dataset contains a significant number of reviews, with a majority rated 5 stars, as visualized in the review count bar plot.
+The RoBERTa model provides sentiment scores, and the positive sentiment score (roberta_pos) correlates with higher star ratings, as shown in the bar plot titled "Positive score by star review."
+
+Future Improvements
+
+Add preprocessing steps for text cleaning (e.g., removing stop words, lemmatization).
+Incorporate additional sentiment models for comparison (e.g., VADER, BERT).
+Expand analysis to include negative and neutral sentiment scores.
+Optimize for large-scale processing by sampling or using distributed computing.
+
+
+
+
+
+Acknowledgments
+
+Kaggle for providing the Amazon Fine Food Reviews dataset.
+Hugging Face for the RoBERTa model used for sentiment analysis.
+The open-source community for the libraries used in this project.
